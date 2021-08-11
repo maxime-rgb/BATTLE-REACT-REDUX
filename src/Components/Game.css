@@ -434,7 +434,7 @@ animation: none;
 /*#### End Bouton COMBO ####*/
 
 .bar-taille {
-width: 65%;
+width: 100%;
 margin: auto;
 display: block;
 }
@@ -452,12 +452,22 @@ white-space: nowrap;
 background-color: #007bff;
 transition: width .6s ease;
 height: 100%;
+width: 100px;
 }
 
 .bg-danger {
-background-color: #ff3547 !important;
+background-color: #047717 !important;
 height: 100%;
+border: 3px solid rgb(100, 100, 100);
+
 }
+
+.undefined{
+background-color: #0632c2 !important;
+border: 3px solid rgb(100, 100, 100);
+}
+
+
 
 
 

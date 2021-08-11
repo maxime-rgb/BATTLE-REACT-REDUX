@@ -1,4 +1,4 @@
-body {
+body{
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -7,7 +7,74 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+code{
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.monsterCard{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-bottom: 5em;
+}
+.container-fluid .row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.img-fluid{
+  display: initial;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border: rgb(228, 17, 17) 10px ridge;
+
+}
+
+.monsterName{
+  color: white;
+  font-size: 2em;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-title{
+  color: white;
+  font-size: 1.5em;
+}
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.imgPlayer{
+  border-radius: 50%;
+  height: auto;
+  border: gold 10px ridge;
+ 
+}
+
+
+.progressBarBoss{
+  width: 600px !important;
+}
+
+.hit{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-image: url("./hit.jpg");
+  background-size: cover;
+}
+
+

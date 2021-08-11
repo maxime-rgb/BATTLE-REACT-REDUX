@@ -8,8 +8,9 @@ class ProgressBar extends React.Component {
     render() {
         return (
             <div className="progress md-progress" >
+                
                 <div className="progress-bar"
-                    style={{ width: (this.props.pv * 100 / this.props.pvMax) + "%" }}
+                    style={{ width: (this.props.pv * 150 / this.props.pvMax) + "%" }}
                     aria-valuenow={this.props.pv}
                     aria-valuemin="0"
                     aria-valuemax={this.props.pvMax}
@@ -21,5 +22,6 @@ class ProgressBar extends React.Component {
     }
 
 }
+
 
 export default ProgressBar;

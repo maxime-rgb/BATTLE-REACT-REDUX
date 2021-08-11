@@ -1,37 +1,49 @@
-import React from 'react';
+
 import ProgressBar from './ProgressBar';
+import { connect } from 'react-redux';
 
-class Monster extends React.Component {
 
-  
 
-  render() {
-    return (
-      <section>
-        <div className="container">
-          <div className="row">
-            <div className="card-monstre col-sm-12">
-              <div id="monsterCard">
-                <div className="text-center">
-                  <div className="row">
-                    <div className="col-sm-2 offset-sm-3">
-                      <span className="badge badge-danger ml-2 " id="degatSpanMonster"></span>
-                      <img className="img-fluid" src="http://res.publicdomainfiles.com/pdf_view/67/13925387417373.png" alt='monster' />
-                    </div>
 
-                    <div id="comboOnMonster" className="col-sm-6">
+const mapStateToProps = state => {
+  return { monster: state.monster };
+};
 
-                    </div>
-                  </div>
+const MonsterConnect = ({ monster }) => {
+  return(
+
+  <section>
+    <div className="container">
+      <div className="row">
+        <div className="card-monstre col-sm-12">
+          <div id="monsterCard">
+            <div className="text-center">
+              <div className="row">
+                <div className="col-sm-2 offset-sm-3">
+                  <span className="badge badge-danger ml-2 " id="degatSpanMonster"></span>
+                  <img className="img-fluid" src="../images/hamza.jpg" alt='monster' />
                 </div>
-                <ProgressBar pv='800' pvMax='800' bgType='bg-danger' faType='fa-heart' barName=' : pv' />
+                <p className="monsterName">{monster.name}</p>
+
+                <div id="comboOnMonster" className="col-sm-6">
+
+                </div>
               </div>
             </div>
+
+               <ProgressBar name={monster.name} pv={monster.pv} pvMax={monster.pvMax} bgType='bg-danger' faType='fa-heart' barName=' : pv'/>
+         
           </div>
         </div>
-      </section >
-    )
-  }
+      </div>
+    </div>
+    {monster.pv <= 0 &&
+    alert("le boss est mort")
+    }
+  </section >
+  )
 }
 
-export default Monster;
+const monster = connect(mapStateToProps)(MonsterConnect);
+
+export default monster;
