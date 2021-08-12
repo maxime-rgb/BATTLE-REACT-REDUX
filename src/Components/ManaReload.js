@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { hitMonster, hitBack, resetPlayed, increment, } from '../actions';
+import { resetPlayed, increment, ManaReload } from '../actions';
 
 
 
 const mapDispatchToProps = (dispatch) => {
     return {
-       hitMonsters: (payload) => dispatch(hitMonster(payload)),
-       hitBacks: (payload) => dispatch(hitBack(payload)),
+       ManaReloads: (payload) => dispatch(ManaReload(payload)),
        resetPlayersTurn: (payload) => dispatch(resetPlayed(payload)),
        CounterIncrement: () => dispatch(increment())
     };
@@ -15,14 +14,12 @@ const mapDispatchToProps = (dispatch) => {
 
 
  
-const ButtonCapacityConnect = ({ players, countPlayerTurn, CounterIncrement, resetPlayersTurn, hitMonsters, hitBacks, props, monster }) => {
+const ManaConnect = ({ players, countPlayerTurn, CounterIncrement, resetPlayersTurn, props, monster, ManaReloads }) => {
 
 
     const combat = () => {
 
-
-        hitMonsters (-10)
-        hitBacks ({degats: -10, id: props.player.id})
+        ManaReloads({mana: +10, id:props.player.id})
         CounterIncrement();
 
         if (countPlayerTurn === Object.keys(players).length) {
@@ -34,10 +31,10 @@ const ButtonCapacityConnect = ({ players, countPlayerTurn, CounterIncrement, res
 
     function displayButton(){
         
-        if ((props.player.played) || (props.player.pv === 0) || (monster.pv === 0)) {
+        if ((props.player.played) || (props.player.pv === 0) || (monster.pv === 0) || ( props.player.mana === 30)) {
             return (
-                <button disabled={true} type="button" onClick={() => combat()} className=" hit btn btn-success material-tooltip-main"  >   
-                    <i className="fas fa-bomb"></i> RELOAD
+                <button disabled={true} type="button"  className=" hit btn btn-success material-tooltip-main"  >   
+                    <i className="fas fa-bomb"></i> MANA MAX
                     <i className="fas fa-fire-alt"></i> 
                 </button>
 
@@ -47,7 +44,7 @@ const ButtonCapacityConnect = ({ players, countPlayerTurn, CounterIncrement, res
         else {
             return (
                 <button type="button" onClick={() => combat()} className="hit btn btn-success material-tooltip-main ">
-                    <i className="fas fa-bomb"></i> HIT THE BOSS
+                    <i className="fas fa-bomb"></i> RELOAD MANA
                     <i className="fas fa-fire-alt"></i> 
                 </button>
 
@@ -67,4 +64,4 @@ const mapStateToProps = (state, props) => {
     }
   };
  
-export default connect( mapStateToProps, mapDispatchToProps )(ButtonCapacityConnect);
+export default connect( mapStateToProps, mapDispatchToProps )(ManaConnect);

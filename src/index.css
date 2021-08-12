@@ -73,8 +73,12 @@ margin-bottom: 5em;
   height: 70px;
   width: 70px;
   border-radius: 50%;
-  background-image: url("./hit.jpg");
-  background-size: cover;
+  background-color:rgb(9, 116, 30);
+
+}
+
+.hit:disabled{
+  background-color:rgb(111, 111, 111);
 }
 
 
